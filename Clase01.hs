@@ -45,11 +45,11 @@ maximoAbsoluto x y = maximo (absoluto x) (absoluto y)
 
 -- (3)
 maximo3 :: Int -> Int -> Int -> Int
-maximo3 x y z = maximo (maximo x y) z
+maximo3 x y = maximo (maximo x y)
 
 -- (4.i)
 algunoEs0 :: Float -> Float -> Bool
-algunoEs0 x y = x == 0 || y == 0
+algunoEs0 x y = x * y == 0
 
 -- (4.ii)
 algunoEs0PM :: Float -> Float -> Bool
