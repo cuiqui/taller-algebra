@@ -3,9 +3,11 @@
 estanRelacionados :: (Ord a, Num a) => a -> a -> Bool
 estanRelacionados x y
     | x <= 3 && y <= 3 = True
-    | (x > 3 && x <= 7) && (y > 3 && y <= 7) = True
+    | between x 3 7 && between y 3 7 = True
     | x > 7 && y > 7 = True
     | otherwise = False
+        where
+            between n a b = n > a && n <= b
  
 -- (2)
 prodInt :: Num a => (a, a) -> (a, a) -> a
