@@ -43,8 +43,12 @@ fib :: Int -> Int
 fib n
     | n == 0 = 0
     | n == 1 = 1
-    | otherwise = fib (n-2) + fib (n-1)
+    | otherwise = fib (n - 2) + fib (n - 1)
 
+fibPM :: Int -> Int
+fibPM 0 = 0
+fibPM 1 = 1
+fibPM n = fibPM (n - 2) + fibPM (n - 1)
 {-
     Acá hay floating point error:
         λ > parteEntera 3.999999
@@ -71,12 +75,21 @@ sumaImpares n
     | n == 1 = 1
     | otherwise = 2 * n - 1 + sumaImpares (n - 1)
 
+sumaImparesPM :: Int -> Int
+sumaImparesPM 1 = 1
+sumaImparesPM n = 2 * n - 1 + sumaImparesPM (n - 1)
+
 -- (3)
 medioFact :: Int -> Int
 medioFact n
     | n == 0 = 1
     | n == 1 = 1
     | otherwise = n * medioFact (n - 2)
+
+medioFactPM :: Int -> Int
+medioFactPM 0 = 1
+medioFactPM 1 = 1
+medioFactPM n = n * medioFactPM (n - 2)
 
 -- (4)
 sumaDigitos :: Int -> Int
