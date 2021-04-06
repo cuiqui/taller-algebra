@@ -104,7 +104,7 @@ sumaDigitos n
 eqDigitos :: Int -> Bool
 eqDigitos n
     | n < 10 = True
-    | otherwise = (last == beforeLast)  && eqDigitos rest
+    | otherwise = (last == beforeLast) && eqDigitos rest
     where
         last = mod n 10
         beforeLast = div (mod n 100) 10
