@@ -82,8 +82,7 @@ sumaImparesPM n = 2 * n - 1 + sumaImparesPM (n - 1)
 -- (3)
 medioFact :: Int -> Int
 medioFact n
-    | n == 0 = 1
-    | n == 1 = 1
+    | n <= 1 = 1
     | otherwise = n * medioFact (n - 2)
 
 medioFactPM :: Int -> Int
