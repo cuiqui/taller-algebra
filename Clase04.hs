@@ -8,9 +8,10 @@ import Clase03(eqDigitos)
         g1 0 3 = 0^0 + 0^1 + 0^2 + 0^3 = 1
         g1 1 2 = 1^1 + 1^2 = 1 + 1 = 2
 -}
-g1 :: Float -> Int -> Float
+g1 :: Int -> Int -> Int
 g1 i n
-    | i == fromIntegral n = i ^ n
+    | n < i = 0
+    | i == n = i ^ n
     | otherwise = i ^ n + g1 i (n - 1)
  
 -- (5)
@@ -32,10 +33,17 @@ g1 i n
         1^1 + 1^2 + 1^3 +
         2^2 + 2^3 +
         3^3 = 27 + 8 + 4 + 1 + 1 + 1 = 42
+
+    Helper function
+        g2' m n = suma(i=1..n) suma(j=i..n) i^j
+        g2' m n = suma(i=1..n) g1 i n
 -}
-g2 :: Int -> Float
-g2 0 = 0
-g2 n = g1 1 n + g2 (n - 1)
+g2' :: Int -> Int -> Int
+g2' 0 n = 0
+g2' m n = g1 m n + g2' (m - 1) n
+
+g2 :: Int -> Int
+g2 n = g2' n n
 
 -- (6)
 {-
